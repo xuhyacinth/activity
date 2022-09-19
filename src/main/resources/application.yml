@@ -1,0 +1,27 @@
+
+server:
+  port: 9991
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring-boot-activity?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+    username: root
+    password: 123456
+  devtools:
+    restart:
+      enabled: true
+  # activiti配置
+  activiti:
+    #校验流程文件，自动部署验证设置:true-开启（默认）、false-关闭
+    check-process-definitions: false
+    #表示启动时检查数据库表，不存在则创建
+    database-schema-update: true
+    #表示哪种情况下使用历史表，这里配置为full表示全部记录历史，方便绘制流程图
+    #记录历史等级 可配置的历史级别有none, activity, audit, full
+    history-level: full
+    #true表示使用历史表
+    db-history-used: true
+    # 关闭 SpringAutoDeployment
+    deployment-mode:  never-fail
+    # 是否使用uuid，false 不使用/ 默认是 true 使用
+    use-strong-uuids: false
